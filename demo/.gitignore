@@ -31,3 +31,10 @@ build/
 
 ### VS Code ###
 .vscode/
+.classpath
+.project
+.settings
+mvnw
+mvnw.cmd
+.md
+.cmd
