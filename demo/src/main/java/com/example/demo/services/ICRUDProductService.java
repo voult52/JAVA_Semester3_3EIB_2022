@@ -10,7 +10,7 @@ public interface ICRUDProductService {
 	
 //--------------create------------------
 	
-	public abstract void createProduct(Product temp);
+	public abstract void createProduct(Product temp, int id) throws Exception;
 	
 //--------------read--------------------
 	
@@ -18,14 +18,14 @@ public interface ICRUDProductService {
 	public abstract ArrayList<Product> readAllProducts();
 	
 	//read by id
-	public abstract Product readById(int id);
+	public abstract Product readById(int id) throws Exception;
 	
 	
 //----------------update---------------
-	public abstract boolean updateById(int id, Product temp);
+	public abstract boolean updateById(int id, Product temp) throws Exception;
 	
 //----------------delete----------------
-	public abstract void deleteById(int id);
+	public abstract void deleteById(int id) throws Exception;
 	
 	
 	

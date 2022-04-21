@@ -1,0 +1,17 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<body>
+		<h1>WELCOME TOO MY SHOPPP !!!!!!!</h1>
+	<table>	
+		<tr th:each="tempProd: ${package}">
+		    <td th:text="${tempProd.getTitle()}" > </td>
+		    <td th:text="${tempProd.getDescription()}" > </td>
+		    <td th:text="${tempProd.getQuantity()}" > </td>
+		    <td th:text="${tempProd.getPrice()}" > </td>
+		   
+		</tr>
+	</table>
+
+	
+	</body>
+</html>

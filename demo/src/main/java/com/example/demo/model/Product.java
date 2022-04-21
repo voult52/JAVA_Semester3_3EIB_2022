@@ -1,14 +1,21 @@
 package com.example.demo.model;
 
 public class Product {
+	private int id;
 	private String title;
 	private String description;
 	private int quantity;
 	private float price;
+	
+	private static int counter = 0;
 
 //----------------Getters --------------------
+	
 	public String getTitle() {
 		return title;
+	}
+	public int getId() {
+		return id;
 	}
 	public String getDescription() {
 		return description;
@@ -22,8 +29,13 @@ public class Product {
 
 	
 //----------------Setters --------------------	
+	
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public void setId() {
+		this.id = counter;
+		counter++;
 	}
 	public void setDescription(String description) {
 		this.description = description;
@@ -50,7 +62,7 @@ public Product() {}
 
 //Argumenta
 public Product(String title, String description, int quantity, float price) {
-	super();
+	setId();
 	this.title = title;
 	this.description = description;
 	this.quantity = quantity;
