@@ -18,8 +18,7 @@ public class CRUDProductServiceImpl implements ICRUDProductService {
 			new Product("Bumbieris", "Zaļš", 25, 14.14f)		
 			));
 	
-	@Override
-	public void createProduct(Product temp, int id) throws Exception {
+	public void createProduct(Product temp) throws Exception {
 		boolean isFound = false;
 		for(Product prod: allProducts)
 		{
@@ -88,6 +87,7 @@ public class CRUDProductServiceImpl implements ICRUDProductService {
 			{
 				allProducts.remove(prod);
 				isFound = true;
+				break;
 			}
 		
 		}

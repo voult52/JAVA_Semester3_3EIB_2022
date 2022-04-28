@@ -10,7 +10,7 @@ public interface ICRUDProductService {
 	
 //--------------create------------------
 	
-	public abstract void createProduct(Product temp, int id) throws Exception;
+	public abstract void createProduct(Product temp) throws Exception;
 	
 //--------------read--------------------
 	
