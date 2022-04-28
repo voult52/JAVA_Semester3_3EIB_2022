@@ -4,9 +4,12 @@ package com.example.demo.Controller;
 
 import java.util.ArrayList;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,7 +49,7 @@ public class CRUDProductController {
 	}
 	*/
 	
-	//--------------------------------ADD BY ID --------------------------------------------//
+	
 	
 	@GetMapping("/all/{id}") //localhost:8080/product/all/1
 	public String getProductAllWithOutQestionMark(@PathVariable(name = "id") int id, Model model){
@@ -64,19 +67,25 @@ public class CRUDProductController {
 	
 		
 	}
+	//--------------------------------ADD BY ID --------------------------------------------//
+	
 	
 	@GetMapping("/add") //localhost:8080/product/add
 	public String getProductAdd(Product product)// padodam skatam tukšu produktu
 	{
+
 		return "prod-add-page"; // parādīs prod-add-page.html lapu, kura ????????
 	}
 	
+	
+	
 	@PostMapping("/add")
-	public String postProductAdd(Product product) {
+	public String postProductAdd( @Valid Product product, BindingResult result) {
 		//System.out.print(product);
+		if(!result.hasErrors()) {
 		try {
 			prodService.createProduct(product);
-			return "redirect:/update";
+			return "redirect:/product/all";
 					
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -84,7 +93,8 @@ public class CRUDProductController {
 			
 		}
 		
-		
+		}
+		return "prod-add-page";
 	}
 	
 	//--------------------------------UPDATE BY ID --------------------------------------------//

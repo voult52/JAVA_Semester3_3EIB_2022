@@ -28,7 +28,7 @@ public class CRUDProductServiceImpl implements ICRUDProductService {
 			{
 				prod.setQuantity(prod.getQuantity()+temp.getQuantity());
 				isFound = true;
-				throw new Exception("Product exists and added to quantity");
+				//throw new Exception("Product exists and added to quantity");
 			}
 		
 		}

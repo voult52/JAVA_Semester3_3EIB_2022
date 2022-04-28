@@ -1,13 +1,36 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<body>
 		<form action="#" th:action="@{/product/add}" th:object="${product}" method="post">
+			<table>
+				<tr>
+					<tr>
+						<td>	Name:	</td>
+						<td><input type="text" th:field="*{title}"></input></td>
+						<td th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></td>
+					</tr>
+					
+					<tr>
+						<td>	Description:	</td>
+						<td><input type="text" th:field="*{description}"></input></td>
+						<td th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></td>
+					</tr>
+					
+					<tr>
+						<td>	Price:	</td>
+						<td><input type="text" th:field="*{price}"></input></td>
+						<td th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></td>
+					</tr>
+					
+					<tr>
+						<td>	Quantity:	</td>
+						<td><input type="text" th:field="*{quantity}"></input></td>
+						<td th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}"></td>
+					</tr>
 			
-			<input type="text" th:field="*{title}"></input>
-			<input type="text" th:field="*{description}"></input>
-			<input type="text" th:field="*{price}"></input>
-			<input type="text" th:field="*{quantity}"></input>
-			<button type="submit">Apply</button>
-			
+					<button type="submit">Apply</button>
+					
+				</tr>
+			</table>
 		</form>
 
 	</body>

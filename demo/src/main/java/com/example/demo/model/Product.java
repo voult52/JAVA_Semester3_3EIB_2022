@@ -1,12 +1,50 @@
 package com.example.demo.model;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+
+
+
+
+@Table
+@Entity
 
 public class Product {
-	private int id;
-	private String title;
-	private String description;
-	private int quantity;
-	private float price;
 	
+	
+	@Column(name="id")
+	//TODO uztaisīt unikālu id piešķiršanu no DB puses
+	private int id;
+	
+	@NotNull
+	@Size(min=3, max=30)
+	@Pattern(regexp="[A-Z]{1}[a-z]+")
+	@Column(name="title")
+	private String title;
+	
+	@NotNull
+	@Size(min=3, max=50)
+	@Pattern(regexp="[A-Z]{1}[a-z]+")
+	@Column(name="description")
+	private String description;
+	
+	@Min(0)
+	@Max(10000)
+	@Column(name="quantity")
+	private int quantity;
+	
+	
+	@Min(0)
+	@Max(100)
+	@Column(name="price")
+	private float price;
+
 	private static int counter = 0;
 
 //----------------Getters --------------------
